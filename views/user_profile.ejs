@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="/css/user_profile.css" />
+<div class="container">
+	<h1><%= profile_user.name %> | Profile Page</h1>
+
+	<p>User Name: <%= profile_user.name %></p>
+	<p>Email: <%= profile_user.email %></p>
+</div>
+<!--hello-->
+<% for(post of posts){%>
+<!--hello-->
+<% if ( profile_user.id==post.user.id){ %>
+<div class="container">
+	<div class="card">
+		<h2 class="post-name"><%= post.name %></h2>
+		<h5 class="software">Language Used: <%= post.software %></h5>
+		<h5 class="software">Devloped By: <%= post.teamMembers %></h5>
+
+		<br />
+		<h5 class="software">Description:</h5>
+		<div class="content"><p><%= post.content %></p></div>
+
+		<br />
+		<a class="software" href="<%= post.link %>">link</a>
+
+		<div class="username">
+			<small>
+				<%= post.user.name %> <% if (locals.user && locals.user.id ==
+				post.user.id){ %>
+				<small>
+					<a href="/posts/destroy/<%= post.id %>">Delete</a>
+				</small>
+				<% } %></small
+			>
+		</div>
+		<hr />
+		<a class="view-comments" href="/posts/viewpost/<%=post.id%>"
+			>View Comments
+		</a>
+	</div>
+</div>
+
+<% } %> <%} %> <%- include('_footer'); %>

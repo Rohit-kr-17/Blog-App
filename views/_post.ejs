@@ -1,0 +1,41 @@
+<script
+	src="https://kit.fontawesome.com/d787503892.js"
+	crossorigin="anonymous"
+></script>
+<li>
+	<div class="card">
+		<h2 class="post-name"><%= post.name %></h2>
+		<br />
+		<h4 class="software"><%= post.software %></h4>
+		<h4 class="software"><%= post.teamMembers %></h4>
+
+		<br />
+		<div class="content"><p><%= post.content %></p></div>
+
+		<br />
+		<div>
+			<a class="software" target="_blank" href="<%= post.link %>"
+				>View Project</a
+			>
+			<span class="space-inbetween">|</span>
+			<a class="software" target="_blank" href="<%= post.driveLink %>"
+				>Download Files <i class="fa-solid fa-download"></i
+			></a>
+		</div>
+
+		<div class="username">
+			<small>
+				Created By: <%= post.user.name %> <% if (locals.user && locals.user.id
+				== post.user.id){ %>
+				<small>
+					<a href="/posts/destroy/<%= post.id %>">Delete</a>
+				</small>
+				<% } %></small
+			>
+		</div>
+		<hr />
+		<a class="view-comments" href="/posts/viewpost/<%=post.id%>"
+			>View Comments
+		</a>
+	</div>
+</li>
